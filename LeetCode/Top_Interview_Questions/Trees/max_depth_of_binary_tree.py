@@ -25,7 +25,8 @@ class Solution:
         """
         
         # If the root node is None return the
-        # depth of the tree as -1
+        # depth of the tree as 0
+		# BASE CASE
         if not root:
             return 0
         
