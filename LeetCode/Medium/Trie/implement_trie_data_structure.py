@@ -1,18 +1,12 @@
-"""
-Implement a trie with insert, search, and startsWith methods.
-
-Note:
-You may assume that all inputs are consist of lowercase letters a-z.
-
-"""
-
 class TrieNode:
     """
     Helper class which actually creates a trie node
     """
     def __init__(self):
-        # Creating a dictionary
-        self.children = {}
+        # Creating a list with 26 keys
+        # This is because it is mentioned in the problem that there
+        # are only 26 letters in the laphabet
+        self.children = [None] * 26
 
         # boolean flag to mark the end of the word
         self.is_end = False
@@ -26,6 +20,15 @@ class Trie:
         """
         self.root = TrieNode()
         
+    
+    def char_to_index(self, ch):
+        """
+        Given a character c, return its absolute
+        index in the children list present in the
+        TrieNode
+        """
+        return ord(ch)-ord('a')
+        
 
     def insert(self, word):
         """
@@ -33,47 +36,51 @@ class Trie:
         :type word: str
         :rtype: void
         """
-        # Start from the root node
+       
+        # Start from the root
         node = self.root
         
-        for ch in word:
-            if ch not in node.children:
-                # No TrieNode exists for this character
-                # Create one
-                node.children[ch] = TrieNode()
+        for level in range(len(word)):
+            # Get the relative index of each character
+            # in the word
+            index = self.char_to_index(word[level])
             
-            # Else if a Trie node already exists, navigate 
-            # to that node
-            node = node.children[ch]
-        
-        
-        # Mark the end of the node
+            if not node.children[index]:
+                # There is no TrieNode present here
+                # Create one
+                node.children[index] = TrieNode()
+            
+            # Navigate to this particular index
+            node = node.children[index]
+            
+            
+        # Mark the end of the word after insertion
         node.is_end = True
-
+            
     def search(self, word):
         """
         Returns if the word is in the trie.
         :type word: str
         :rtype: bool
         """
-        # Start from the root node
+        # Start with teh root node
         node = self.root
         
-        # Iterate through all the characters in the
-        # word and check for keys in the children dictionary
+        # Then check if there is Trie node present
+        # for each character
         
-        for ch in word:
-            if ch not in node.children:
+        for item in range(len(word)):
+            index = self.char_to_index(word[item])
+            
+            if not node.children[index]:
+                # Not present, return False
                 return False
             
-            # Now here it is present, therefore
-            # move that particular node
-            node = node.children[ch]
+            # Navigate to the next link
+            node = node.children[index]
         
-        # For a full word to exist we should have reached
-        # the end
+        # Finally return if we have reached the end of the node
         return node.is_end
-        
 
     def startsWith(self, prefix):
         """
@@ -82,20 +89,25 @@ class Trie:
         :rtype: bool
         """
         
-        # This is similar to searching for a word
-        # Only difference is we do not need to check if end of word has been
-        # reached, as we are checking for a prefix only
+        # Similar to searching for a word in the trie data structure
+        # But we do not need to worry about whether we have reached the
+        # end of the node
         
-        # Start from the root node
+        # Start with root
         node = self.root
         
-        for ch in prefix:
-            if ch not in node.children:
+        # Then check if there is a trie node present for each character
+        for i in range(len(prefix)):
+            index = self.char_to_index(prefix[i])
+            
+            if not node.children[index]:
                 return False
             
-            node = node.children[ch]
+            node = node.children[index]
         
         return True
+        
+        
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
