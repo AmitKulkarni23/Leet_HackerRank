@@ -14,8 +14,10 @@ def is_power_of_2(numb):
     :param numb: a +ve integer
     :return: true, iff the number is power of 2
     """
-
-    return not (numb & numb-1)
+    if numb:
+        return not (numb & numb-1)
+    else:
+        return False
 
 
 print(is_power_of_2(256))
