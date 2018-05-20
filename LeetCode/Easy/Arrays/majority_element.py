@@ -32,6 +32,8 @@ def majorityElement(nums):
             # We have found teh majority element
             return item
 
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 def best_leet_code_sol(nums):
     """
     :type nums: List[int]
