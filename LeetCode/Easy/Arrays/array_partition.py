@@ -15,6 +15,10 @@ def arrayPairSum(nums):
     # Strategy: Sort the array and pair teh numbers together.
     # We know that there are even number of elements(2n)
 
+    # NOTE: Instead of finding minumum after sorted, could have just added the
+    # all teh even elements using slicing as below
+    # return sum(sorted(nums)[::2])
+
     nums.sort()
 
     i = 0
@@ -28,6 +32,7 @@ def arrayPairSum(nums):
         j = i + 1
 
     return final_sum
+
 
 
 arr = [1, 4, 3, 2]
