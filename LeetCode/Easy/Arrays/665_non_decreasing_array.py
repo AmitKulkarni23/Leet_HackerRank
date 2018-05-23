@@ -17,7 +17,7 @@ def checkPossibility(nums):
     :type nums: List[int]
     :rtype: bool
     """
-
+    # Inspired by: https://leetcode.com/problems/non-decreasing-array/solution/
     p = None
 
     for i in range(len(nums) - 1):
