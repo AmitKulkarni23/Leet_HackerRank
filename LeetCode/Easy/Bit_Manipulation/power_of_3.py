@@ -3,10 +3,11 @@ def power_of_3_math(n):
     :type n: int
     :rtype: bool
     """
+    import math
     # n = 3 ^ i
     # i = log3(n)
     # i = log10(n) / log10(3)
-    # return (Math.log10(n) / Math.log10(3)) % 1 == 0;
+    # return (math.log(n, 10) / math.log(3, 10)) % 1 == 0;
 
 
 def isPowerOfThree_integer_limitation(n):
@@ -33,3 +34,6 @@ def isPowerOfThree_recursive(n):
     if n%3:
         return False
     return self.isPowerOfThree(n/3)
+
+print(power_of_3_math(81 * 9))
+print(power_of_3_math(45))
