@@ -61,3 +61,38 @@ class Solution(object):
 
 
         return connected_components
+
+
+        def best_leet_code_sol(self, head, G):
+            """
+            :type head: ListNode
+            :type G: List[int]
+            :rtype: int
+            """
+            # The above method makes 2 passes through teh linked list
+            # The below method does only 1 pass
+
+            # Use 2 pointers. Maintain distance of n nodes between the 1st and 2nd pointer
+            # second + n = first
+
+            # Move first pointer to teh last node
+            # Now the second pointer is at the nth node from the last
+            # Delete the node pointed by teh second pointer
+
+
+            # Intially create a dummy node
+            dummy = ListNode(0)
+            dummy.next = head
+            first = dummy
+            second = dummy
+
+            for i in range(1, n + 2):
+                first = first.next
+
+            while first is not None:
+                first = first.next
+                second = second.next
+
+            second.next = second.next.next
+
+            return dummy.next
