@@ -7,7 +7,7 @@
 # Input: "Hello, my name is John"
 # Output: 5
 
-def countSegments(self, s):
+def countSegments(s):
     """
     :type s: str
     :rtype: int
