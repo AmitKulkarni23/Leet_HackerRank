@@ -14,6 +14,8 @@ def longest_common_subsequence(X, Y):
     Given 2 strings X and Y, this function returns teh length of
     the longest common subsequence of teh 2 strings X, Y
 
+    Time Complexity - O(mn)
+
     Example:
     LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
     LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4.
@@ -49,7 +51,7 @@ def longest_common_subsequence(X, Y):
 def recursive_LCS(X, m, Y, n):
     """
     Recursive implementation of teh LCS problem
-
+    Time Complexity - O( 2 ^ n)
     Inputs:
     X - string
     m - len(X)
