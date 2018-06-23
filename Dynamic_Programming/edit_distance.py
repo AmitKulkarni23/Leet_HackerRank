@@ -56,12 +56,52 @@ def edit_distance(S1, S2, m, n):
     # Take teh minimum f these three operations
 
     return 1 + min(edit_distance(S1, S2, m, n - 1),
-                    edit_distance(S1, S2, m - 1, n - 1),
+                    edit_distance(S1, S2, m - 1, n),
                     edit_distance(S1, S2, m - 1, n - 1))
-                    
 
+
+def edit_distance_memoized(S1, S2, m, n):
+    """
+    Function to calculate the minimumm edit distance between S1 and S2
+    The same as above
+
+    Time COmplexity: O(m * n)
+    Use a temporary array
+
+    Credits: https://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
+    """
+
+    # Create a temporary arrayof size (m + 1) * ( n + 1)
+    dp = [[0 for x in range(n + 1)] for x in range(m + 1)]
+
+    # Iterate through both teh strings
+    for i in range(m + 1):
+        for j in range(n + 1):
+
+            # If teh first string is empty, insert all characters of S2 into S1
+            if i == 0:
+                dp[i][j] = j
+
+            # Similary if second string is empty, we have to remove all characters
+            # from S1
+            elif j == 0:
+                dp[i][j] = i
+
+
+            # Else do all teh oeprations
+            # Check if teh last 2 character strings are equal
+            elif S1[i - 1] == S2[j -1]:
+                dp[i][j] = dp[i-1][j-1]
+
+            else:
+                dp[i][j] = 1 + min(dp[i][j-1],
+                                    dp[i-1][j],
+                                    dp[i-1][j-1])
+
+    print(dp)
+    return dp[m][n]
 
 # Examples:
-s1 = "sunday"
-s2 = "saturday"
-print(edit_distance(s1, s2, len(s1), len(s2)))
+s1 = "cat"
+s2 = "cut"
+print(edit_distance_memoized(s1, s2, len(s1), len(s2)))
