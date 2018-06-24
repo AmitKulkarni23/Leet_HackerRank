@@ -98,10 +98,10 @@ def edit_distance_memoized(S1, S2, m, n):
                                     dp[i-1][j],
                                     dp[i-1][j-1])
 
-    print(dp)
+    # print(dp)
     return dp[m][n]
 
 # Examples:
-s1 = "cat"
-s2 = "cut"
+s1 = "intention"
+s2 = "execution"
 print(edit_distance_memoized(s1, s2, len(s1), len(s2)))

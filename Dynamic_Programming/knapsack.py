@@ -44,7 +44,24 @@ def knapsack_cached(val, weights, W, n):
     Function that returns teh maximum value that can be obtained
     for the knapsack problem
 
+    Time Complexity -> O(nW)
     """
+
+    # Create a cache
+    cache = [[0 for _ in range(W+1)] for _ in range(n+1)]
+
+    # Iterate through the matrix
+    for i in range(n+1):
+        for j in range(W+1):
+
+            if i == 0 or j == 0:
+                cache[i][j] = 0
+            elif weights[i - 1] <= j:
+                cache[i][j] = max(val[i-1] + cache[i-1][j - weights[i-1]], cache[i-1][j])
+            else:
+                cache[i][j] = cache[i-1][j]
+
+    return cache[n][W]
 
 # Examples:
 value = [60, 100, 120]
@@ -52,3 +69,4 @@ weight = [10, 20, 30]
 n = len(value)
 W = 50
 print(knapsack_recursive(value, weight, W, n))
+print(knapsack_cached(value, weight, W, n))
