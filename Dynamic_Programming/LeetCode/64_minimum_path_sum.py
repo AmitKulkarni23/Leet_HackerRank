@@ -16,6 +16,7 @@
 
 #########################################################
 
+# Time 91ms
 def minPathSum(grid):
     """
     :type grid: List[List[int]]
@@ -58,6 +59,31 @@ def minPathSum(grid):
 
     # print(cache)
     return cache[-1][-1]
+
+# Uses 1D array instead of 2D array
+# Time : 50 ms
+def best_leet_code_sol(grid):
+    """
+    :type grid: List[List[int]]
+    :rtype: int
+    """
+    if not grid:
+        return 0
+    m = len(grid)
+    n = len(grid[0])
+
+
+    if m == 0 or n == 0:
+        return 0
+
+    res = [0] + [float("inf")]*(n-1)
+
+    for i in range(m):
+        res[0] = res[0] + grid[i][0]
+        for j in range(1, n):
+            res[j] = min(res[j], res[j-1]) + grid[i][j]
+
+    return res[-1]
 
 # Examples:
 input = [
