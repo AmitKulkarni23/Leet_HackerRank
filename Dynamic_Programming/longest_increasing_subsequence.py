@@ -42,8 +42,8 @@ def lis(D):
     for i in range(1, len(D)):
         for j in range(i):
 
-            # We will only append to L[i] D[j] < D[i]
-            # That is the tail element(teh last element) of D[j] < D[i]
+            # We will only append to L[i]if  D[j] < D[i]
+            # That is the tail element(the last element) of D[j] < D[i]
 
             if D[j] < D[i] and L[i] < L[j] + 1:
                 L[i] = L[j] + 1
