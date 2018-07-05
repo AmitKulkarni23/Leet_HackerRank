@@ -12,6 +12,10 @@
 def justify(words, width):
     """
     Function that returns the optimal string with badness minimized
+
+    Credits -> https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/TextJustification.java
+    Time Complexity : O(n ^ 2)
+    Space Complexity : O(n ^ 2)
     """
     # Create a list out of the strings
     words_matrix = words.split()
