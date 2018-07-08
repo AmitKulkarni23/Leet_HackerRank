@@ -20,8 +20,6 @@ def minimumTotal(triangle):
     :type triangle: List[List[int]]
     :rtype: int
     """
-
-
     # Credits -> https://leetcode.com/problems/triangle/discuss/38724/7-lines-neat-Java-Solution
     if not triangle:
         # there are no elements in teh triangle
