@@ -22,7 +22,7 @@
 
 # return max_area
 
-
+# time Complexity -> O(n)
 def largestRectangleArea(heights):
     """
     :type heights: List[int]
