@@ -22,7 +22,28 @@ def power(x, y):
             return x * temp * temp
         else:
             return (temp * temp) / x
+
+
+def power_iterative(x, n):
+    """
+    Iterative solution for finding pow(x, n)
+    """
+    res = 1.0
+
+    if n < 0:
+        x = 1 / x
+
+    while n != 0:
+        # If n is odd
+        if n & 1:
+            res = res * x
+
+        n = int(n / 2)
+        x = x * x
+
+    return res
 # Examples:
-x = 3
-y = -4
+x = 2.0
+y = -2
 print(power(x, y))
+print(power_iterative(x, y))
