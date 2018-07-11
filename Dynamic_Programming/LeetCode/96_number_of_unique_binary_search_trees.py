@@ -17,6 +17,8 @@
 
 # Time Complexity -> O( n ^ 2)
 # Space COmplexity : O(n)
+
+# Credits -> https://leetcode.com/problems/unique-binary-search-trees/discuss/31666/DP-Solution-in-6-lines-with-explanation.-F(i-n)-G(i-1)-*-G(n-i)
 def numTrees(n):
     """
     :type n: int
