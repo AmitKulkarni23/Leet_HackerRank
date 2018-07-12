@@ -9,7 +9,8 @@
 
 
 # Dp -> bottom up approach
-
+# Space Complexity -> O(n ^ 2)
+# Time Complexity -> O(n ^ 2)
 
 def get_min_insertions(str):
     """
