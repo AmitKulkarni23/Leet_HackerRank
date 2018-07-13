@@ -21,15 +21,26 @@ def getSum(a, b):
     if b == 0:
         return a
 
+    if a == -b:
+        # Example : a = 1, b = -1
+        return 0
+
+    if abs(a) > abs(b):
+        # We want a to be the bigger number
+        a, b = b, a
+
+    # If a is negative
+    if a < 0:
+        return getSum(-a, -b)
+
     while b != 0:
 
         # Calculate carry
         carry = a & b
-
         # Assign the differnt bits to a
         a = a ^ b
 
         b = carry << 1
 
     return a
-print(getSum(10, 12))
+print(getSum(-1, 1))
