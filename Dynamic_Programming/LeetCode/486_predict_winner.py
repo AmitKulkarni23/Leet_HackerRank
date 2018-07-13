@@ -24,6 +24,8 @@
 # If the scores of both players are equal, then player 1 is still the winner.
 
 
+# Explanation Reference -> https://leetcode.com/problems/predict-the-winner/discuss/96828/JAVA-9-lines-DP-solution-easy-to-understand-with-improvement-to-O(N)-space-complexity.
+
 # Explanation:
 # After we decide that dp[i][j] saves how much more scores that the first-in-action player
 # will get from i to j than the second player, the next step is how we update the
