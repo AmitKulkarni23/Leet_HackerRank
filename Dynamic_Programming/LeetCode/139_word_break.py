@@ -68,6 +68,8 @@ def best_leet_code_sol(s, wordDict):
     :type wordDict: List[str]
     :rtype: bool
     """
+    # Credits -> https://leetcode.com/submissions/detail/163654122/
+
     l = len(s)
     dp = [False for i in range(l+1)]
     dp[0] = True
