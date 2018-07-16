@@ -67,6 +67,6 @@ def findNthDigit(n):
     target = start + (n - 1) / len
     # print("The actual number is ", target)
     remainder = (n - 1) % len
-    return str(n)[remainder]
+    return str(target)[remainder]
 
 print(findNthDigit(2886))
