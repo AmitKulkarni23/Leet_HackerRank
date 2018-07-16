@@ -15,12 +15,16 @@
 
 
 # THIS IS GIVING ME MEMORY LIMIT EXCEEDED
+import pprint
 def generate(numRows):
     """
     :type numRows: int
     :rtype: List[List[int]]
     """
     # Corner cases
+    if numRows == 0:
+        return []
+
     if numRows == 1:
         return [[1]]
 
@@ -41,11 +45,10 @@ def generate(numRows):
         # In Pascal's traingle the number of elements are
         # 1, 2, 3, 4, 5, 6 etc..
         j = len(final_list) + 1
-        inter_med_list = [-1] * j
+        inter_med_list = []
 
-        # The first and last elemnts of teh intermeditae list will always be 1
-        inter_med_list[0] = 1
-        inter_med_list[-1] = 1
+        # The first will always be 1
+        inter_med_list.append(1)
 
         # Now we need to populate the middle elements
         # Take the last list in teh final_list
@@ -53,17 +56,17 @@ def generate(numRows):
 
         # Counter to know teh position where we will be inserting the element
         # in the intermediate list
-        index = 1
 
-        last_list = final_list[-1]
-        for x in range(len(last_list) - 1):
+
+        for x in range(len(final_list[-1]) - 1):
             y = x + 1
-            inter_med_list[index] = last_list[x] + last_list[y]
-            index +=1
+            inter_med_list.append(final_list[-1][x] + final_list[-1][y])
 
+        # The last element of the intermedite list is 1
+        inter_med_list.append(1)
         final_list.append(inter_med_list)
         # Decrement i
         new_len -= 1
     return final_list
 
-print(generate(6))
+pprint.pprint(generate(6))
