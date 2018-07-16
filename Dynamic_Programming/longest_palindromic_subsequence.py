@@ -61,7 +61,7 @@ def lps_dynamic_programming(str):
     return cache[0][n-1]
 
 # Examples:
-str = "bacbca"
+str = "hiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxrhiddqscdxr"
 n = len(str)
-print("The LPS for", str, "is", lps_recursive(str, 0, n - 1))
+# print("The LPS for", str, "is", lps_recursive(str, 0, n - 1))
 print("The LPS for", str, "is", lps_dynamic_programming(str))
