@@ -33,7 +33,7 @@ class Solution(object):
         final_list = []
 
         if root == None:
-            return None
+            return []
 
         self.binary_tree_helper(root, final_list, "")
         return final_list
