@@ -51,3 +51,27 @@ class Solution(object):
 
         if root.right != None:
             self.binary_tree_helper(root.right, final_list, path + str(root.val) + "->")
+
+    # Iterative Solution
+    # Credits -> https://leetcode.com/submissions/detail/164483866/
+    def binaryTreePaths_iterative(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[str]
+        """
+        ans=[]
+        stack=[]
+        stack.append((root,""))
+
+        while stack:
+
+            node,path=stack.pop()
+
+            if node:
+                if node.left is None and node.right is None:
+                    ans.append(path+str(node.val))
+
+                stack.append((node.left,path+str(node.val)+"->"))
+                stack.append((node.right,path+str(node.val)+"->"))
+
+        return ans
