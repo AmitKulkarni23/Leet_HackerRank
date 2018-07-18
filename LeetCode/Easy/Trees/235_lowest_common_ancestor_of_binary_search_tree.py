@@ -94,6 +94,7 @@ class Solution(object):
 
     # Runtime 68ms
     # Credits -> https://leetcode.com/submissions/detail/164512886/
+    # NOTE: For the #235 problem the tree was a BST
     def best_leetcode_sol(self, root, p, q):
         if not root or not p or not q:
             return None
