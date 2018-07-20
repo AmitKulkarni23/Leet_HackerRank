@@ -26,6 +26,10 @@
 #         self.right = None
 
 class Solution(object):
+
+    # Time COmplexity : O(n) -> n is teh number of nodes in teh tree
+    # Space COmplexity -> O(n) -> The queue can contain all nodes in each level
+                                # in the worst case
     def invertTree(self, root):
         """
         :type root: TreeNode
