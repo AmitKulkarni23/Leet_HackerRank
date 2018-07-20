@@ -36,20 +36,20 @@ class Solution(object):
         :rtype: int
         """
         final_list = []
-        self.preorder_helper(root, final_list)
+        self.inorder_helper(root, final_list)
 
         return min([abs(a - b) for a, b in zip(final_list, final_list[1:])])
 
-    def preorder_helper(self, node, final_list):
+    def inorder_helper(self, node, final_list):
         """
         A helper function
         """
         if node.left:
-            self.preorder_helper(node.left, final_list)
+            self.inorder_helper(node.left, final_list)
 
         final_list.append(node.val)
 
         if node.right:
-            self.preorder_helper(node.right, final_list)
+            self.inorder_helper(node.right, final_list)
 
         return final_list
