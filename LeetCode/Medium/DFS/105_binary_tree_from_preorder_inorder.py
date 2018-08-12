@@ -32,7 +32,7 @@ class Solution(object):
         :rtype: TreeNode
         """
         # NOTE: Draw and binary tree and write down pre-order and inorder traversals
-        # Credits -> https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
+        # Credits -> https://articles.leetcode.com/construct-binary-tree-from-inorder-and-preorder-postorder-traversal/
 
         # tree's root node always correspons to 1st element in pre-order traversal
         if len(preorder) == 0:
