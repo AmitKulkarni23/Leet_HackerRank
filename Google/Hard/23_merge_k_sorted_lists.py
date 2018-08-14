@@ -1,25 +1,58 @@
-# Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+# Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 #
 # Example:
 #
-# Input: 1->2->4, 1->3->4
-# Output: 1->1->2->3->4->4
+# Input:
+# [
+#   1->4->5,
+#   1->3->4,
+#   2->6
+# ]
+# Output: 1->1->2->3->4->4->5->6
 
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 
-class Solution:
-    def mergeTwoLists(self, l1, l2):
+class Solution(object):
+    def mergeKLists(self, lists):
         """
-        :type l1: ListNode
-        :type l2: ListNode
+        :type lists: List[ListNode]
         :rtype: ListNode
         """
+        # Credits -> https://leetcode.com/problems/merge-k-sorted-lists/solution/
 
-        # Credits -> https://leetcode.com/problems/merge-two-sorted-lists/solution/
+        # Idea -> We know how to merge 2 sorted lists
+        # So we will do pairwise merging of lists
+        # Suppose there are 8 lists
+        # merge(1,2), merge(3, 4), merge(5, 6), merge(7, 8)
+        # So 8 reduced to 4 and 4 reduced to 2..
+        # So in each merge operation we traverse N nodes
+        # And we do merge operations for logk times
+
+        # Time COmplexity -> O(N log k)
+
+        k = len(lists)
+
+        interval = 1
+
+        while interval < k:
+            for i in range(0, k - interval, interval * 2):
+                lists[i] = self.merge_2_lists(lists[i], lists[i + interval])
+            interval *= 2
+
+        if k > 0:
+            return lists[0]
+        else:
+            return lists
+
+
+    def merge_2_lists(self, l1, l2):
+        """
+        Helper function
+        """
         # Time COmplexity -> O(m + n)
 
         # Create a dummy head called as  "prehead" whose .next will be returned after
