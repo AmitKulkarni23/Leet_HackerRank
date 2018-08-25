@@ -13,7 +13,7 @@
 #   [3,2,1]
 # ]
 
-
+# Runtime -> 68 ms
 def permute(nums):
     """
     :type nums: List[int]
@@ -46,3 +46,23 @@ def permute(nums):
 # Examples:
 x = [10, 20, 30]
 print(permute(x))
+
+
+def permuteUtil(nums,result,level):
+    if level == len(nums) - 1:
+        result.append(nums[:])
+        return
+    for i in range(level,len(nums)):
+        temp = nums[:]
+        temp[i],temp[level] = temp[level],temp[i]
+        permuteUtil(temp,result,level+1)
+
+def permute_best_leet_code(nums):
+    """
+    :type nums: List[int]
+    :rtype: List[List[int]]
+    """
+    result = []
+    level = 0
+    permuteUtil(nums,result,level)
+    return result
