@@ -36,6 +36,7 @@
 #              "(T ? (T ? F : 5) : 3)"                   "(T ? (T ? F : 5) : 3)"
 #           -> "(T ? F : 3)"                 or       -> "(T ? F : 5)"
 #           -> "F"                                    -> "F"
+# Runtime : 76ms
 def parseTernary(expression):
     """
     :type expression: str
@@ -54,6 +55,30 @@ def parseTernary(expression):
             # print("stack[-1]", stack[-1])
             stack[-5:] = stack[-3 if stack[-1] == 'T' else -5]
     return stack[0]
+
+# Runtime : 32 ms
+def parseTernary(expression):
+    """
+    :type expression: str
+    :rtype: str
+    """
+    while len(expression) > 2:
+        count = 0
+        for x in range(2, len(expression)):
+            if expression[x] == '?':
+                count += 1
+            elif expression[x] == ':':
+                count -= 1
+                if count == -1:
+                    if expression[0] == 'T':
+                        expression = expression[2:x]
+                    else:
+                        expression = expression[x+1:]
+                    break
+        else:
+            return expression
+
+    return expression
 
 # Examples:
 express = "T?2:3"
