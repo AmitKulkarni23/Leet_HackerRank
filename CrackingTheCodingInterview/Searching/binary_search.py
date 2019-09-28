@@ -16,7 +16,8 @@ def binary_search(arr, item):
     found = False
 
     while first <= last and not found:
-        mid = (first + last) // 2
+        # https://thebittheories.com/the-curious-case-of-binary-search-the-famous-bug-that-remained-undetected-for-20-years-973e89fc212
+        mid = (last - first) // 2 + first
         if arr[mid] == item:
             found = True
         else:
