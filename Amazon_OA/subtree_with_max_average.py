@@ -1,5 +1,8 @@
 # https://leetcode.com/discuss/interview-question/349617
 
+# Time -> O(N) where N is the number of nodes
+# Space -> O(H) where H is the height of the tree
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -36,6 +39,7 @@ def helper(node):
         max_node = node
 
     return [cur_total, count]
+
 
 
 max_node = None
