@@ -22,7 +22,8 @@
 ##################################################################################
 
 # Approach -> BFS
-
+# Time -> O(R * C) -> We might have to visit all the cells before getting to the treasure
+# Space -> O(R * C) -> Store all visited cells
 
 from collections import deque
 
