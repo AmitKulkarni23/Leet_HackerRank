@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/prison-cells-after-n-days
+# Solution Credits -> https://leetcode.com/problems/prison-cells-after-n-days/discuss/205684/JavaPython-Find-the-Loop-or-Mod-14
 
 # Brute Force
 def prisonAfterNDays(cells, N):
