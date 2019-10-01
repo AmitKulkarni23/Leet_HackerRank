@@ -24,8 +24,8 @@
 # Explanation: 6 + 6 + abs(0 - 6) = 18
 
 # Solution Credits -> https://leetcode.com/playground/EFw7cewr
-
-
+# Time -> O(N)
+# Space -> O(1)
 ###############################
 
 def max_appeal_sum(arr):
