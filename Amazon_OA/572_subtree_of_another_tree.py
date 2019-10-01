@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/subtree-of-another-tree
+# Time Complexity -> O(n ^ 2) -> To find whether a string is in another string
+# Space - P(max(m, n)) The depth of recursion tree can go upto n for tree t and m for tree s in worst case
 
 class TreeNode:
     def __init__(self, x):
