@@ -14,7 +14,7 @@ class Node:
 ###############################################
 # Brute Force Approach:
 # Time: O(N)
-# Space : O(1)
+# Space : O(N) -> mainting hasmap and the stack space for recursion calls
 # if head in self.visitedHash:
 #     return self.visitedHash[head]
 #
