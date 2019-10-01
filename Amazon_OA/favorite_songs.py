@@ -1,4 +1,7 @@
 # https://leetcode.com/playground/bzSMcEUD
+# Time -> O(USG)
+# Space -> Is this true? O(n * m + m * s), where n is the number of users,
+# and m is the amount of genres, and s is the number of songs
 
 def initialize():
     userSongs = {
@@ -12,6 +15,7 @@ def initialize():
         "Pop": ["song5", "song6"],
         "Jazz": ["song8", "song9"]
     }
+    # return userSongs, {}
     return userSongs, songGenres
 
 
