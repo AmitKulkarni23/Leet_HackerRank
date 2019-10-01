@@ -25,7 +25,8 @@
 # Notice that for each die you can do this in one move.
 
 # Credits -> https://leetcode.com/discuss/interview-question/331158 -> User -> pzhang15
-
+# Time - O(N) -> We have to iterate through nums to create the count array
+# Space -> O(1) -> Constant space
 
 def roll_dice(nums):
     min_moves = float("inf")

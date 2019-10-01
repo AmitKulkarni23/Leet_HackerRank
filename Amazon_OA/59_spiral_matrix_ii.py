@@ -5,6 +5,8 @@ def generateMatrix(n):
     # Credits -> https://leetcode.com/problems/spiral-matrix-ii/discuss/22282/4-9-lines-Python-solutions
     # Time - O(n * n) -> need to visit all cells
     # Space - O(1) -> No storage
+    # We make a turn(clockwise) when we are about to go out of bounds /
+    # when we have visited a cell previously
 
     # Initilaize matrix will all zeros
     answer = [[0 for c in range(n)] for r in range(n)]

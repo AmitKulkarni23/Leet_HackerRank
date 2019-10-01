@@ -1,9 +1,12 @@
 # https://leetcode.com/discuss/interview-question/330356
 import heapq
 # Time Complexity -> O(N log D)
+# Each insertion in the heap takes (log D) time
+# We are doing N insertions.
 # where N is the total number of characters ( A + B + C)
 # D is the number of unique / distinct characters
 
+# Space -> O(N) where N = A + B + C -> because we are pushing A + B + C times in the heap.
 
 def ls3(A, B, C):
     pq = []
