@@ -15,7 +15,8 @@
 # Explanation: movieDurations[0] + movieDurations[6] = 90 + 125 = 215 is the maximum number within 220 (250min - 30min)
 
 # https://leetcode.com/discuss/interview-question/313719/
-
+# Time -> O(n log n)
+# Space -> O(n)
 
 def flight_details(arr, k):
     # store the movies in a new list m
