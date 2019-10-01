@@ -12,6 +12,9 @@ def connectSticks(sticks):
     # Time Complexity - 2 push, 1 pop for N such items.
     # Each push and pop takes O(log N) time.
     # O(N log N)
+
+    # Space -> O(sticks). Building a heap from a list takes O(number_of_elements_in_list) time
+
     heapq.heapify(sticks)
     cost = 0
 
