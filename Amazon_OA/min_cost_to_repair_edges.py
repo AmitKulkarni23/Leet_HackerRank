@@ -29,7 +29,12 @@ class Solution:
     def minCostForRepair(self, n, edges, edgesToRepair):
         graph = defaultdict(list)
         # Graph will be of the form
+        # Python's heapq sorts based on the first item in the tuple
         # { u : [(cost_to_repair_u_v1, v1), (cost_to_repair_u_v2, v2)
+
+
+
+
         broken_edges = set()
         for u, v, cost in edgesToRepair:
             graph[u].append((cost, v))
@@ -45,6 +50,8 @@ class Solution:
         res = 0
         priorityQueue = [(0, 1)]
         heapq.heapify(priorityQueue)
+
+        # We use a set to avoid cycles while adding nodes to the MST
         visited = set()
 
         while priorityQueue:
