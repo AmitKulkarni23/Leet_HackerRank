@@ -1,5 +1,6 @@
 def find_k_largest(nums, k):
-
+    # Time: O(N) in the average case; O(N^2) in the worst case
+    # Space : O(1)
     def select(first, last, k_smallest):
         if first == last:
             return nums[first]
