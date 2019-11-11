@@ -1,3 +1,8 @@
+"""
+A trie is a tree-like data structure whose nodes store the letters of an alphabet
+Strings/Words can be retrieved by traversing down a branch path of the tree.
+"""
+
 class TrieNode:
     """
     Helper class which actually creates a trie node
