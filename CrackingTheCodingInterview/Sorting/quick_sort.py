@@ -1,67 +1,72 @@
 """
 Python file which implements the quick sort algorithm
-Not: here the pivot element is teh first element of the array
+Basic Algorithm:
+
+quickSort(arr[], low, high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[pi] is now
+           at right place */
+        pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);  // Before pi
+        quickSort(arr, pi + 1, high); // After pi
+    }
+}
+
+ANALAYIS OF QUICK SORT -> https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/analysis-of-quicksort
+
+Worst Case -> In particular, suppose that the pivot chosen
+is always either the smallest or the largest element in the nnn-element subarray.
+Then one of the partitions will contain no elements and the other partition
+will contain n-1 elements, all but the pivot.
+
+For unbalanced partitions:
+cn -> c(n - 1) -> c(n - 2)....
+cn + c(n - 1) + c(n - 2) + .... = c((n + 1)(n / 2) - 1)
+O(n ^ 2)
+
+Best Case: When the partitions are evenly balanced.
+cn + 2 * cn / 2 + 4 * cn / 4 + ...
+O(n log n)
+
 """
 
 
+import random
+
 def quick_sort(arr):
-    """
-    Performs a quick sort on the given array
-    :param arr: The array to be sorted
-    :return: Sorted array
-    """
-    quick_sort_helper(arr, 0, len(arr) - 1)
+  def select(left, right):
+    if left < right:
+
+      pivot_index = random.randint(left, right)
+      pivot_index = partition(left, right, pivot_index)
+
+      select(left, pivot_index - 1)
+      select(pivot_index + 1, right)
 
 
-def quick_sort_helper(arr, first, last):
-    if first < last:
+  def partition(left, right, idx):
+    pivot_element = arr[idx]
 
-        # Find the split point
-        split_point = partition(arr, first, last)
+    # Move the pivot element to the very end of the array
+    arr[right], arr[idx] = arr[idx], arr[right]
+    store_idx = left
 
-        # Recusrively call split quick sort algorithm
-        quick_sort_helper(arr, first, split_point - 1)
-        quick_sort_helper(arr, split_point+1,last)
+    for i in range(left, right):
+      if arr[i] < pivot_element:
+        arr[store_idx], arr[i] = arr[i], arr[store_idx]
+        store_idx += 1
 
+    # Move the pivot element back to it's correct position
+    arr[right], arr[store_idx] = arr[store_idx], arr[right]
 
-def partition(arr, first, last):
-    """
-    Method that returns the actual split point in the arr
-    """
+    return store_idx
 
-    # Making the first element as the pivot element
-    pivot = arr[first]
-
-    left_mark = first + 1
-    right_mark = last
-
-    finished = False
-
-    while not finished:
-        while left_mark <= right_mark and arr[left_mark] <= pivot:
-            left_mark += 1
-
-        while left_mark <= right_mark and arr[right_mark] >= pivot:
-            right_mark -= 1
-
-        if right_mark < left_mark:
-            # We are done here
-            finished = True
-
-        else:
-            # keep exchanging the values
-            temp = arr[left_mark]
-            arr[left_mark] = arr[right_mark]
-            arr[right_mark] = temp
-
-    # Now exchange the pivot value and the rightmark value
-    temp = arr[first]
-    arr[first] = arr[right_mark]
-    arr[right_mark] = temp
-
-    return right_mark
+  select(0, len(arr) - 1)
 
 
-arr = [43, 32, 47, 16, 24, 89, 0, -1, 11, 2, 4, 3]
-quick_sort(arr)
-print(arr)
+nums = [10, 7, -12, 6, 24, 14, 32, -98, 1098]
+quick_sort(nums)
+print(nums)
