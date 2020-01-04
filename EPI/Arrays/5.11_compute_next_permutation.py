@@ -57,3 +57,32 @@ decreasing order
 3. Swap p[l] <-> p[k]
 4. Reverse the sequence after position k
 """
+
+def nextPermutation(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    # Time: O(n)
+    # Spce: O(1)
+
+    inversion_point = len(nums) - 2
+    while inversion_point >= 0 and nums[inversion_point] >= nums[inversion_point + 1]:
+        inversion_point -= 1
+
+    if inversion_point == -1:
+        # The whole array is in reversed sorted order
+        return nums.reverse()
+
+    # Swap the smallest element after inversion_point that is greater than nums[inversion_point]
+    # Since entries after inversion_point are in reverse/decreasing order, if we search in reverse order
+    # the first element greater than nums[inversion_point] is the one need to swap with
+
+    for i in reversed(range(inversion_point + 1, len(nums))):
+        if nums[i] > nums[inversion_point]:
+            # Swap and break
+            nums[i], nums[inversion_point] = nums[inversion_point], nums[i]
+            break
+
+    # We just need to reverse everything in the suffix(everything after the inversion point)
+    nums[inversion_point + 1:] = reversed(nums[inversion_point + 1:])
