@@ -10,6 +10,8 @@ class Q:
     def dequeue(self):
         if self.stack:
             return self.recurse()
+        else:
+            return "Stack is emepty"
 
     def recurse(self):
         if len(self.stack) == 1:
