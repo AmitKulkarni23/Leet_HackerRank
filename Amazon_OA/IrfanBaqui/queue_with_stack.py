@@ -11,7 +11,7 @@ class Q:
         if self.stack:
             return self.recurse()
         else:
-            return "Stack is emepty"
+            return "Stack is empty"
 
     def recurse(self):
         if len(self.stack) == 1:
