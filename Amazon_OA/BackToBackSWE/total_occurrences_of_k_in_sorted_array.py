@@ -1,7 +1,8 @@
 # Total Occurrences of K in a Sorted Array
 
 # Approach: Do 2 binary searches
-
+# Time: O(logn)
+# Space: O(logn) recursive stack space.
 
 def get_total_occurrences_of_k(arr, k):
     first_occurrence = binary_search(arr, k , 0, len(arr) - 1, "FIRST")
