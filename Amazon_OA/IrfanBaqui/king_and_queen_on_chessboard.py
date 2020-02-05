@@ -8,5 +8,8 @@
 
 # Case: There are no more pieces on the chessboard
 
-def check_mate(kx. ky, qx, qy):
+def check_mate(kx, ky, qx, qy):
+    # We need to validate if kx, ky, qx and qy are withing bounds of
+    # the chessboard
+
     return kx == qx or ky == qy or abs(kx - qx) == abs(ky - qy)
