@@ -9,6 +9,8 @@ class TreeNode:
 
 class Solution:
     # Inorder traversal - Visit the left child + visit the node + visit the right child
+    # Time Complexity - O(n) - need to visit all nodes
+    # Space Complexity - O(n) - runtime recursion stack will include 1 call to the recursive function each time we visit a node
     def inorderTraversal(self, root):
         if not root:
             return []
