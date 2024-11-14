@@ -30,9 +30,10 @@ class Solution:
         if node1 is None and node2 is None:
             return True
         
-        # Check for the 
-        if node1 and node2:
-            if node1.val == node2.val:
-                return self.is_mirror(node1.left, node2.right) and self.is_mirror(node1.right, node2.left)
+        if node1 or node2:
+            return False
+        
+    
+        node1.val == node2.val and self.is_mirror(node1.left, node2.right) and self.is_mirror(node1.right, node2.left)
         
         return False
