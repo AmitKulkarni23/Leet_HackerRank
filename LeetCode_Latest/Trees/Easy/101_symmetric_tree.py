@@ -30,7 +30,7 @@ class Solution:
         if node1 is None and node2 is None:
             return True
         
-        if node1 or node2:
+        if node1 is None or node2 is None:
             return False
         
     
