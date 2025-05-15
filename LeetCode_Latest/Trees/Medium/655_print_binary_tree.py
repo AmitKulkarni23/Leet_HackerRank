@@ -23,6 +23,8 @@ class Solution:
         if not node:
             return
         
+        # The key insight is the calculation of mid here
+        # We have to know that res[0][(n-1)/2] is essentially mid
         mid = (left + right) // 2
         result[row][mid] = str(node.val)
 
