@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/can-place-flowers/
 
 class Solution:
-    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool: 
+    def canPlaceFlowers(self, flowerbed, n) -> bool: 
         # Time: O(n)
         # Space: O(1)
         count = 0

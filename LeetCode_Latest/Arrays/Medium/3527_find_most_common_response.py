@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/find-the-most-common-response/description/
 
 class Solution:
-    def findCommonResponse(self, responses: List[List[str]]) -> str:
+    def findCommonResponse(self, responses) -> str:
         # Time Complexity - Time Complexity: O(N * M) where N = number of days, M = average number of responses per day.
 
         # Space Complexity: O(R) where R = total number of unique responses across all days.
