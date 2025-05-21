@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/cutting-ribbons/
+
+
 class Solution:
     def maxLength(self, ribbons: List[int], k: int) -> int:
         # This is a binary search problem
@@ -11,6 +13,9 @@ class Solution:
         # This check is monotonic:
         # If x is possible, then all values smaller than x are also possible.
         # If x is not possible, then all values larger than x are also impossible.
+
+        # Time - O(n × log(max)) where n = len(ribbons) and max = max(ribbons)
+        # Space - O(1)
 
         def can_cut(length):
             count = 0
