@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/frequency-of-the-most-frequent-element/description/
+# Same as https://leetcode.com/problems/max-consecutive-ones-iii
+# Same as https://leetcode.com/problems/longest-repeating-character-replacement/
 
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
